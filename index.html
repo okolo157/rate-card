@@ -5,37 +5,165 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Victor Okolo - Rate Card 2025</title>
   <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
   <style>
     body {
       font-family: 'Inter', sans-serif;
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      min-height: 100vh;
     }
     .container {
-      max-width: 800px;
+      max-width: 900px;
       margin: 0 auto;
       padding: 2rem;
     }
+    .card {
+      background: rgba(255, 255, 255, 0.95);
+      backdrop-filter: blur(10px);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      box-shadow: 0 25px 50px rgba(0, 0, 0, 0.1);
+      border-radius: 20px;
+      transition: all 0.3s ease;
+    }
+    .card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 35px 70px rgba(0, 0, 0, 0.15);
+    }
     .section-title {
-      font-size: 1.875rem;
+      font-size: 2rem;
       font-weight: 700;
-      color: #1f2937;
-      margin-bottom: 1rem;
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      margin-bottom: 1.5rem;
+      text-align: center;
     }
     .sub-section-title {
+      font-size: 1.375rem;
+      font-weight: 600;
+      color: #1f2937;
+      margin-top: 2rem;
+      margin-bottom: 1rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+    .sub-section-title::before {
+      content: '';
+      width: 4px;
+      height: 24px;
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      border-radius: 2px;
+    }
+    .rate-card {
+      background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
+      border: 1px solid #e2e8f0;
+      border-radius: 12px;
+      padding: 1.5rem;
+      margin-bottom: 1rem;
+      transition: all 0.3s ease;
+      position: relative;
+      overflow: hidden;
+    }
+    .rate-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 3px;
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    }
+    .rate-card:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+    }
+    .rate-amount {
       font-size: 1.25rem;
       font-weight: 600;
-      color: #374151;
-      margin-top: 1.5rem;
-      margin-bottom: 0.75rem;
+      color: #1f2937;
+      margin-bottom: 0.5rem;
     }
-    .rate-item {
-      margin-bottom: 1rem;
+    .rate-description {
+      color: #6b7280;
+      font-size: 0.875rem;
+      line-height: 1.5;
+    }
+    .profile-item {
+      background: #f8fafc;
+      border-radius: 8px;
+      padding: 1rem;
+      margin-bottom: 0.75rem;
+      border-left: 4px solid #667eea;
+      transition: all 0.3s ease;
+    }
+    .profile-item:hover {
+      background: #f1f5f9;
+      border-left-color: #764ba2;
     }
     .link {
-      color: #3b82f6;
-      text-decoration: underline;
+      color: #667eea;
+      text-decoration: none;
+      font-weight: 500;
+      transition: all 0.3s ease;
+      position: relative;
     }
     .link:hover {
-      color: #1d4ed8;
+      color: #764ba2;
+    }
+    .link::after {
+      content: '';
+      position: absolute;
+      bottom: -2px;
+      left: 0;
+      width: 0;
+      height: 2px;
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      transition: width 0.3s ease;
+    }
+    .link:hover::after {
+      width: 100%;
+    }
+    .icon {
+      display: inline-block;
+      width: 20px;
+      height: 20px;
+      margin-right: 0.5rem;
+      opacity: 0.7;
+    }
+    .contact-section {
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      color: white;
+      padding: 2rem;
+      border-radius: 16px;
+      margin-top: 2rem;
+      text-align: center;
+    }
+    .contact-link {
+      color: white;
+      background: rgba(255, 255, 255, 0.2);
+      padding: 0.75rem 1.5rem;
+      border-radius: 8px;
+      text-decoration: none;
+      font-weight: 500;
+      transition: all 0.3s ease;
+      display: inline-block;
+      margin: 0.5rem;
+    }
+    .contact-link:hover {
+      background: rgba(255, 255, 255, 0.3);
+      transform: translateY(-2px);
+    }
+    .badge {
+      display: inline-block;
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      color: white;
+      padding: 0.25rem 0.75rem;
+      border-radius: 12px;
+      font-size: 0.75rem;
+      font-weight: 500;
+      margin-left: 0.5rem;
     }
     @media (max-width: 640px) {
       .container {
@@ -47,101 +175,161 @@
       .sub-section-title {
         font-size: 1.125rem;
       }
+      .rate-card {
+        padding: 1rem;
+      }
     }
   </style>
 </head>
-<body class="bg-gray-100">
-  <div class="container bg-white shadow-lg rounded-lg p-6">
-    <h1 class="section-title">Rate Card for Victor Okolo - Mid-Level Software Developer in Nigeria (2025)</h1>
-
-    <section>
-      <h2 class="sub-section-title">My Profile</h2>
-      <ul class="list-disc pl-5 text-gray-700">
-        <li><strong>Name</strong>: Victor Okolo</li>
-        <li><strong>Experience</strong>: 3.5 years</li>
-        <li><strong>Skills</strong>: Proficient in front-end (HTML, CSS, JavaScript, React), back-end (Node.js, Express), databases (MongoDB, PostgreSQL), version control (Git), and deployment platforms (Vercel). Experienced in building responsive web applications and integrating APIs.</li>
-        <li><strong>Responsibilities</strong>: Developing full-stack web applications, optimizing performance, collaborating with teams, and ensuring clean, maintainable code.</li>
-        <li><strong>Location</strong>: Nigeria (Remote or Lagos-based)</li>
-      </ul>
-    </section>
-
-    <section>
-      <h2 class="sub-section-title">Rate Structure</h2>
-      <p class="text-gray-700 mb-4">Rates are provided for both local (NGN) and international (USD) clients, with all rates reduced by an additional 10% from previously adjusted rates.</p>
-
-      <h3 class="sub-section-title">Hourly Rates</h3>
-      <div class="rate-item">
-        <p><strong>Local Clients (NGN)</strong>: ₦5,062.50 – ₦8,100 per hour</p>
-        <p class="text-gray-600">Suitable for Nigerian startups, fintechs, and local businesses.</p>
-      </div>
-      <div class="rate-item">
-        <p><strong>International Clients (USD)</strong>: $16.88 – $27 per hour</p>
-        <p class="text-gray-600">Competitive for offshore outsourcing, aligning with global rates for mid-level developers.</p>
+<body>
+  <div class="container">
+    <div class="card p-8">
+      <h1 class="section-title">Rate Card for Victor Okolo</h1>
+      <div class="text-center mb-6">
+        <span class="badge">Mid-Level Software Developer</span>
+        <span class="badge">Nigeria</span>
+        <span class="badge">2025</span>
       </div>
 
-      <h3 class="sub-section-title">Monthly Rates</h3>
-      <div class="rate-item">
-        <p><strong>Local Clients (NGN)</strong>: ₦337,500 – ₦540,000 per month</p>
-        <p class="text-gray-600">Based on a standard 160-hour work month, suitable for full-time roles in Lagos or remote.</p>
-      </div>
-      <div class="rate-item">
-        <p><strong>International Clients (USD)</strong>: $1,350 – $2,362.50 per month</p>
-        <p class="text-gray-600">Reflects remote work for global companies, factoring in Nigeria’s cost of living and skill level.</p>
-      </div>
+      <section>
+        <h2 class="sub-section-title">
+          <span class="icon">👨‍💻</span>
+          My Profile
+        </h2>
+        <div class="profile-item">
+          <strong>Name</strong>: Victor Okolo
+        </div>
+        <div class="profile-item">
+          <strong>Experience</strong>: 3.5 years
+        </div>
+        <div class="profile-item">
+          <strong>Skills</strong>: Proficient in front-end (HTML, CSS, JavaScript, React), back-end (Node.js, Express), databases (MongoDB, PostgreSQL), version control (Git), and deployment platforms (Vercel). Experienced in building responsive web applications and integrating APIs.
+        </div>
+        <div class="profile-item">
+          <strong>Responsibilities</strong>: Developing full-stack web applications, optimizing performance, collaborating with teams, and ensuring clean, maintainable code.
+        </div>
+        <div class="profile-item">
+          <strong>Location</strong>: Nigeria (Remote or Lagos-based)
+        </div>
+      </section>
 
-      <h3 class="sub-section-title">Project-Based Rates</h3>
-      <div class="rate-item">
-        <p><strong>Simple Web Applications</strong>: ₦585,225 – ₦975,375 ($390.15 – $732.23)</p>
-        <p class="text-gray-600">Includes portfolio websites, landing pages, or small-scale apps (e.g., CMS, blogs) built with React and Node.js.</p>
-      </div>
-      <div class="rate-item">
-        <p><strong>Complex Applications</strong>: ₦1,219,218.75 – ₦2,194,593.75 ($877.83 – $1,560.60)</p>
-        <p class="text-gray-600">Includes e-commerce platforms, dashboards, or applications requiring API integrations and scalability.</p>
-      </div>
-      <div class="rate-item">
-        <p><strong>Specialized Projects</strong>: $1,463.07 – $2,438.44+</p>
-        <p class="text-gray-600">For projects involving advanced features like real-time data, complex UI/UX, or custom API development.</p>
-      </div>
-    </section>
+      <section>
+        <h2 class="sub-section-title">
+          <span class="icon">💰</span>
+          Rate Structure
+        </h2>
+        <p class="text-gray-700 mb-6">Rates are provided for both local (NGN) and international (USD) clients, with all rates reduced by an additional 10% from previously adjusted rates.</p>
 
-    <section>
-      <h2 class="sub-section-title">Additional Considerations</h2>
-      <ul class="list-disc pl-5 text-gray-700">
-        <li><strong>Bonuses and Incentives</strong>: May include 3–5% of annual salary as performance bonuses, common in private sector roles.</li>
-        <li><strong>Fringe Benefits</strong>: Housing allowance, transportation, or medical insurance may be negotiated, especially with multinational companies.</li>
-        <li><strong>Remote Work Premium</strong>: Remote work for international clients may command a 20–30% higher rate due to global demand and English proficiency.</li>
-        <li><strong>Engagement Terms</strong>:
-          <ul class="list-circle pl-5">
+        <h3 class="sub-section-title">
+          <span class="icon">⏰</span>
+          Hourly Rates
+        </h3>
+        <div class="rate-card">
+          <div class="rate-amount">Local Clients (NGN): ₦5,062.50 – ₦8,100 per hour</div>
+          <div class="rate-description">Suitable for Nigerian startups, fintechs, and local businesses.</div>
+        </div>
+        <div class="rate-card">
+          <div class="rate-amount">International Clients (USD): $16.88 – $27 per hour</div>
+          <div class="rate-description">Competitive for offshore outsourcing, aligning with global rates for mid-level developers.</div>
+        </div>
+
+        <h3 class="sub-section-title">
+          <span class="icon">📅</span>
+          Monthly Rates
+        </h3>
+        <div class="rate-card">
+          <div class="rate-amount">Local Clients (NGN): ₦337,500 – ₦540,000 per month</div>
+          <div class="rate-description">Based on a standard 160-hour work month, suitable for full-time roles in Lagos or remote.</div>
+        </div>
+        <div class="rate-card">
+          <div class="rate-amount">International Clients (USD): $1,350 – $2,362.50 per month</div>
+          <div class="rate-description">Reflects remote work for global companies, factoring in Nigeria's cost of living and skill level.</div>
+        </div>
+
+        <h3 class="sub-section-title">
+          <span class="icon">🚀</span>
+          Project-Based Rates
+        </h3>
+        <div class="rate-card">
+          <div class="rate-amount">Simple Web Applications: ₦585,225 – ₦975,375 ($390.15 – $732.23)</div>
+          <div class="rate-description">Includes portfolio websites, landing pages, or small-scale apps (e.g., CMS, blogs) built with React and Node.js.</div>
+        </div>
+        <div class="rate-card">
+          <div class="rate-amount">Complex Applications: ₦1,219,218.75 – ₦2,194,593.75 ($877.83 – $1,560.60)</div>
+          <div class="rate-description">Includes e-commerce platforms, dashboards, or applications requiring API integrations and scalability.</div>
+        </div>
+        <div class="rate-card">
+          <div class="rate-amount">Specialized Projects: $1,463.07 – $2,438.44+</div>
+          <div class="rate-description">For projects involving advanced features like real-time data, complex UI/UX, or custom API development.</div>
+        </div>
+      </section>
+
+      <section>
+        <h2 class="sub-section-title">
+          <span class="icon">⚡</span>
+          Additional Considerations
+        </h2>
+        <div class="profile-item">
+          <strong>Bonuses and Incentives</strong>: May include 3–5% of annual salary as performance bonuses, common in private sector roles.
+        </div>
+        <div class="profile-item">
+          <strong>Fringe Benefits</strong>: Housing allowance, transportation, or medical insurance may be negotiated, especially with multinational companies.
+        </div>
+        <div class="profile-item">
+          <strong>Remote Work Premium</strong>: Remote work for international clients may command a 20–30% higher rate due to global demand and English proficiency.
+        </div>
+        <div class="profile-item">
+          <strong>Engagement Terms</strong>:
+          <ul class="list-disc pl-5 mt-2 space-y-1">
             <li><strong>Minimum Engagement</strong>: 20 hours/week for part-time contracts.</li>
             <li><strong>Payment Terms</strong>: Net 30 days for local clients; Net 15 for international clients.</li>
             <li><strong>Contract Duration</strong>: Flexible, with 3–6 month contracts preferred for project-based work.</li>
           </ul>
-        </li>
-      </ul>
-    </section>
+        </div>
+      </section>
 
-    <section>
-      <h2 class="sub-section-title">How to Hire</h2>
-      <ul class="list-disc pl-5 text-gray-700">
-        <li><strong>Portfolio</strong>: Explore my work at <a href="https://victor-okolo.vercel.app" class="link" target="_blank">victor-okolo.vercel.app</a> to review projects and capabilities.</li>
-        <li><strong>Vetting Process</strong>: Available for technical assessments (e.g., HackerRank, coding challenges) and interviews to ensure project alignment.</li>
-        <li><strong>Onboarding</strong>: 1–2 weeks for project kickoff, including requirement analysis and setup on platforms like Vercel.</li>
-        <li><strong>Support</strong>: Weekly progress reports and 24/7 communication via Slack, email, or project management tools (e.g., Jira, Trello).</li>
-      </ul>
-    </section>
+      <section>
+        <h2 class="sub-section-title">
+          <span class="icon">📋</span>
+          How to Hire
+        </h2>
+        <div class="profile-item">
+          <strong>Portfolio</strong>: Explore my work at <a href="https://victor-okolo.vercel.app" class="link" target="_blank">victor-okolo.vercel.app</a> to review projects and capabilities.
+        </div>
+        <div class="profile-item">
+          <strong>Vetting Process</strong>: Available for technical assessments (e.g., HackerRank, coding challenges) and interviews to ensure project alignment.
+        </div>
+        <div class="profile-item">
+          <strong>Onboarding</strong>: 1–2 weeks for project kickoff, including requirement analysis and setup on platforms like Vercel.
+        </div>
+        <div class="profile-item">
+          <strong>Support</strong>: Weekly progress reports and 24/7 communication via Slack, email, or project management tools (e.g., Jira, Trello).
+        </div>
+      </section>
 
-    <section>
-      <h2 class="sub-section-title">Notes</h2>
-      <ul class="list-disc pl-5 text-gray-700">
-        <li>Rates are estimates and may vary based on project complexity, specific requirements, and client location.</li>
-        <li>My experience with Vercel deployments ensures fast, scalable, and optimized web applications.</li>
-        <li>For international clients, rates are competitive compared to other outsourcing destinations like India or Eastern Europe.</li>
-      </ul>
-    </section>
+      <section>
+        <h2 class="sub-section-title">
+          <span class="icon">📝</span>
+          Notes
+        </h2>
+        <div class="profile-item">
+          Rates are estimates and may vary based on project complexity, specific requirements, and client location.
+        </div>
+        <div class="profile-item">
+          My experience with Vercel deployments ensures fast, scalable, and optimized web applications.
+        </div>
+        <div class="profile-item">
+          For international clients, rates are competitive compared to other outsourcing destinations like India or Eastern Europe.
+        </div>
+      </section>
 
-    <section>
-      <p class="text-gray-700 mt-4">For inquiries or to discuss specific project needs, contact me via <a href="mailto:okolodubem9@gmail.com" class="link">email</a> or visit <a href="https://victor-okolo.vercel.app" class="link" target="_blank">victor-okolo.vercel.app</a>.</p>
-    </section>
+      <div class="contact-section">
+        <h2 style="margin-bottom: 1rem; font-size: 1.5rem; font-weight: 600;">Ready to Work Together?</h2>
+        <p style="margin-bottom: 1.5rem; opacity: 0.9;">Let's discuss your project needs and bring your ideas to life.</p>
+        <a href="mailto:okolodubem9@gmail.com" class="contact-link">📧 Email Me</a>
+        <a href="https://victor-okolo.vercel.app" class="contact-link" target="_blank">🌐 View Portfolio</a>
+      </div>
+    </div>
   </div>
 </body>
 </html>
